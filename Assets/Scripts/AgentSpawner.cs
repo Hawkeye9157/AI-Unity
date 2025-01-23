@@ -17,5 +17,6 @@ public class AgentSpawner : MonoBehaviour
                 Instantiate(agents[index], hitInfo.point, Quaternion.identity);
             }
         }
+
     }
 }
