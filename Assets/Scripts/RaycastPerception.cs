@@ -9,7 +9,7 @@ public class RaycastPerception : Perception
     {
         List<GameObject> objects = new List<GameObject>();
 
-        Vector3[] directions = Utilities.GetDirectionInCircle(numRaycast, maxAngle);
+        /*Vector3[] directions = Utilities.GetDirectionInCircle(numRaycast, maxAngle);
         foreach (Vector3 direction in directions)
         {
             Ray ray = new Ray(transform.position, transform.rotation * direction);
@@ -24,7 +24,7 @@ public class RaycastPerception : Perception
                 }
                 
             }
-        }
+        }*/
 
         return objects.ToArray();
     }

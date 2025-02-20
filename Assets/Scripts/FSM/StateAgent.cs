@@ -41,6 +41,24 @@ public class StateAgent : AIAgent
             }
         }
     }
+    public void OnDamage(float damage)
+    {
+        health.value -= damage;
+
+        if (health <= 0) stateMachine.SetState(nameof(AIDeathState));
+        else stateMachine.SetState(nameof(AIHitState));
+    }
+    public void Attack()
+    {
+        var colliders = Physics.OverlapSphere(transform.position, 1);
+        foreach (var collider in colliders)
+        {
+            if (collider.gameObject != enemy) continue;
+
+            if (collider.gameObject.TryGetComponent<StateAgent>(out var agent))
+                agent.OnDamage(Random.Range(20, 50));
+        }
+    }
     private void OnGUI()
     {
         // draw label of current state above agent
