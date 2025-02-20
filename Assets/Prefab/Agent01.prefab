@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5620008358238988614}
   - component: {fileID: 2773995842251356056}
   - component: {fileID: -4747669666806697561}
+  - component: {fileID: 6209647552281479123}
   - component: {fileID: 6909110772743884278}
   - component: {fileID: 1490006524113081776}
   - component: {fileID: 4744046309437185994}
@@ -56,6 +57,7 @@ MonoBehaviour:
   seekPerception: {fileID: 2773995842251356056}
   fleePerception: {fileID: 0}
   flockPerception: {fileID: 5620008358238988614}
+  obstaclePerception: {fileID: 6209647552281479123}
 --- !u!114 &5620008358238988614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,9 +70,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a59bc82ce13f4e442a541240d9c74528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: 
   tagName: Agent01
   maxDistance: 5
   maxAngle: 360
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &2773995842251356056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,9 +89,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a59bc82ce13f4e442a541240d9c74528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: 
   tagName: Agent02
   maxDistance: 5
   maxAngle: 360
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &-4747669666806697561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,6 +109,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: db8d4e3abea571741ad31321483ea6ba, type: 2}
+--- !u!114 &6209647552281479123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871084662772318532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f31d2cb614a2a4694eb8358f39c1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: obstacle
+  tagName: 
+  maxDistance: 0
+  maxAngle: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  numRaycast: 8
 --- !u!33 &6909110772743884278
 MeshFilter:
   m_ObjectHideFlags: 0

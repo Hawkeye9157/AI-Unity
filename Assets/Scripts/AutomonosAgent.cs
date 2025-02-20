@@ -8,6 +8,7 @@ public class AutomonosAgent : AIAgent
     public Perception seekPerception;
     public Perception fleePerception;
     public Perception flockPerception;
+    public Perception obstaclePerception;
 
      float angle;
     void Update()
@@ -53,6 +54,17 @@ public class AutomonosAgent : AIAgent
                 
             }
         }
+        //OBSTACLE
+        if(obstaclePerception != null && obstaclePerception.CheckDirection(Vector3.forward))
+        {
+            Vector3 direction = Vector3.zero;
+            //if(obstaclePerception.GetOpenDirection(ref direction))
+            //{
+            //    Debug.DrawRay(transform.position, direction * 5,Color.red);
+            //    movement.ApplyForce(GetSteeringForce(direction)) * data.obstacleWeight;
+            //}
+        }
+
         //wander
         if(movement.Acceleration.sqrMagnitude == 0)
         {
@@ -61,7 +73,7 @@ public class AutomonosAgent : AIAgent
         }
 
         Vector3 acceleration = movement.Acceleration;
-        acceleration.y = 0;
+        //acceleration.y = 0;
         movement.Acceleration = acceleration;
         if(movement.Direction.sqrMagnitude != 0)
         {
@@ -89,6 +101,12 @@ public class AutomonosAgent : AIAgent
     }
     private Vector3 Allignment(GameObject[] neighbors)
     {
+        Vector3 velocities = Vector3.zero;
+
+        foreach (var neighbor in neighbors)
+        {
+            //velocities += neighbor
+        }
         return Vector3.zero;
     }
 

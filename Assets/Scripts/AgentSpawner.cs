@@ -4,6 +4,7 @@ public class AgentSpawner : MonoBehaviour
 {
     [SerializeField] AIAgent[] agents;
     [SerializeField] LayerMask layerMask;
+    [SerializeField, Range(0,5)] float USScale = 0;
 
     int index = 0;
     void Update()
@@ -14,7 +15,8 @@ public class AgentSpawner : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray, out RaycastHit hitInfo, 100,layerMask))
             {
-                Instantiate(agents[index], hitInfo.point, Quaternion.identity);
+                Instantiate(agents[index], hitInfo.point + Random.onUnitSphere * USScale * Random.value,
+                    Quaternion.identity);
             }
         }
 

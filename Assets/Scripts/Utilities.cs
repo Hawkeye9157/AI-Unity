@@ -13,4 +13,8 @@ public static class Utilities
         v.z = Wrap(v.z, min.z, max.z);
         return v;
     }
+    //public static Vector3[] GetDirectionsInCircle(int num,float angle)
+    //{
+    //   
+    //}
 }
